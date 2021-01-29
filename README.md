@@ -8,7 +8,7 @@ The main.py file shows an example of pilot pattern design for a VehA channel wit
 In this example, first indices are found using Concrete Autoencoder network and then the interpolation and SRCNN networks are trained based on the designed pilot setup. 
 
 # Acknowledgement 
-Implementation of the Concrete Autoencoder is taken from the source codes provided by its authors: https://github.com/mfbalin/Concrete-Autoencoders
+For implementation of the Concrete Autoencoder we have used the source codes provided by the authors: https://github.com/mfbalin/Concrete-Autoencoders
 
 # Datasets 
 
