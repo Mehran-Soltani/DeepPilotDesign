@@ -17,7 +17,8 @@ For implementation of the Concrete Autoencoder we have used the source codes pro
 For more details see : https://ieeexplore.ieee.org/document/9166541
 And please use the citation below : 
 
-`@ARTICLE{Soltani2020ChannelNet,
+```
+@ARTICLE{Soltani2020ChannelNet,
   author={M. {Soltani} and V. {Pourahmadi} and H. {Sheikhzadeh}},
   journal={IEEE Wireless Communications Letters}, 
   title={Pilot Pattern Design for Deep Learning-Based Channel Estimation in OFDM Systems}, 
@@ -25,7 +26,9 @@ And please use the citation below :
   volume={9},
   number={12},
   pages={2173-2176},
-  doi={10.1109/LWC.2020.3016603}}`
+  doi={10.1109/LWC.2020.3016603}
+  }
+```
 
 
 
