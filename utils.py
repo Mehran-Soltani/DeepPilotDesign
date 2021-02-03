@@ -164,7 +164,7 @@ class ConcreteAutoencoderFeatureSelector():
 
 
 def load_channel(num_pilots, SNR):
-    # perfect = loadmat("drive/codes/my_srcnn/Perfect_H_40000.mat")["My_perfect_H"]
+    # perfect = loadmat("./data/Perfect_H_40000.mat")["My_perfect_H"]
     perfect = loadmat("./VehA_perfect_all.mat")["H_p_rearranged"]
     perfect = np.transpose(perfect, [2, 0, 1])
     print(perfect.shape)
@@ -179,7 +179,7 @@ def load_channel(num_pilots, SNR):
     perfect_image = perfect_image.reshape(
         (perfect_image.shape[0], np.dot(perfect_image.shape[1], perfect_image.shape[2])))
 
-    # noisy = loadmat("drive/codes/my_srcnn/My_noisy_H_" + str(SNR) + ".mat")["My_noisy_H"]
+    # noisy = loadmat("./data/My_noisy_H_" + str(SNR) + ".mat")["My_noisy_H"]
     noisy = loadmat("./VehA_noisy_all.mat")["H_p_noisy"]
     noisy = np.transpose(noisy, [2, 0, 1])
     print(noisy.shape)
@@ -196,10 +196,6 @@ def load_channel(num_pilots, SNR):
     # perfect_image = np.random.uniform(low = 0.01 , high= 0.99 , size = (perfect_image.shape[0], 72*14))
     print(perfect_image.shape)
     print(noisy_image.shape)
-
-    # idx_random = np.random.rand(len(perfect_image)) < (8 / 10)
-    # train_data, train_label = noisy_image[idx_random, :], perfect_image[idx_random, :]
-    # val_data, val_label = noisy_image[~idx_random, :], perfect_image[~idx_random, :]
 
     train_data, test_data, train_label, test_label = train_test_split(noisy_image, perfect_image, test_size=1 / 9,
                                                                       random_state=1)
@@ -277,7 +273,6 @@ def interpolate_predict(test_data, test_label, num_pilots, SNR, type_ind):
     sr_model.load_weights(
         "./interp_weights/interp_" + str(num_pilots) + "_" + "all" + type_ind + ".h5")
 
-    # srcnn_model.load_weights("drive/codes/my_srcnn/SRCNN_SUI5_weights/SRCNN_48_12.h5")
     predicted = sr_model.predict(test_data)
     mse = mean_squared_error(predicted, test_label)
     return predicted, mse
@@ -344,15 +339,12 @@ def SRCNN_train(train_data, train_label, val_data, val_label, num_epochs, num_pi
     srcnn_model.fit(train_data, train_label, batch_size=128, validation_data=(val_data, val_label),
                     callbacks=callbacks_list, shuffle=True, epochs=num_epochs, verbose=0)
 
-    # srcnn_model.save_weights("drive/codes/my_srcnn/SRCNN_SUI5_weights/SRCNN_48_12.h5")
     srcnn_model.save_weights("./SRCNN_weights/SR_Veh_" + str(num_pilots) + "all" + type + ".h5")
 
 
 def SRCNN_predict(test_data, test_label, num_pilots, SNR, type):
     srcnn_model = SRCNN_predict_model()
     srcnn_model.load_weights("./SRCNN_weights/SR_Veh_" + str(num_pilots) + "all" + type + ".h5")
-
-    # srcnn_model.load_weights("drive/codes/my_srcnn/SRCNN_SUI5_weights/SRCNN_48_12.h5")
     predicted = srcnn_model.predict(test_data)
     mse = mean_squared_error(predicted.reshape(predicted.shape[0], 1008), test_label.reshape(test_label.shape[0], 1008))
 
