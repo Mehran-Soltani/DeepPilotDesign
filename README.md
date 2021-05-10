@@ -17,7 +17,7 @@ links to access the data-sets:
 Noisy channels as the input (including channels with all SNR vlaues reported in the paper):
 https://drive.google.com/file/d/1w5H6jnD2jlf-sH5WmxyqVY-aVrjuVtvj/view?usp=sharing
 
-Perfect channels as the output:
+Corresponding perfect channels as the output (channels without noise):
 https://drive.google.com/file/d/19dH4sECa1Wo2O0uxQU2S1QjZJatU1WQY/view?usp=sharing
 
 
