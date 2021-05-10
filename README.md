@@ -14,10 +14,10 @@ For implementation of the Concrete Autoencoder we have used the source codes pro
 
 links to access the data-sets:
 
-Noisy input:
+Noisy channels as the input:
 https://drive.google.com/file/d/1w5H6jnD2jlf-sH5WmxyqVY-aVrjuVtvj/view?usp=sharing
 
-Perfect channels as output:
+Perfect channels as the output:
 https://drive.google.com/file/d/19dH4sECa1Wo2O0uxQU2S1QjZJatU1WQY/view?usp=sharing
 
 
