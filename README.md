@@ -14,7 +14,7 @@ For implementation of the Concrete Autoencoder we have used the source codes pro
 
 links to access the data-sets:
 
-Noisy channels as the input:
+Noisy channels as the input (including channels with all SNR vlaues reported in the paper):
 https://drive.google.com/file/d/1w5H6jnD2jlf-sH5WmxyqVY-aVrjuVtvj/view?usp=sharing
 
 Perfect channels as the output:
